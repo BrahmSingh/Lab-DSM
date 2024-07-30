@@ -1,0 +1,460 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "DSM - Digital Sales Manager",
+        "description": "DSM - Digital Sales Manager",
+        "version": "2.0.0",
+        "x-ibm-skill-type": "imported",
+        "x-ibm-application-icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 48 48\"><path d=\"M0 0h48v48H0z\" data-name=\"Layer 2\" style=\"fill:#fff\"/><g data-name=\"Layer 1\"><path d=\"M40.36 29.91a.7.7 0 1 1 1.4 0 .7.7 0 1 1-1.4 0Zm1.24.05v-.09c0-.3-.23-.53-.54-.53s-.54.23-.54.53v.09c0 .3.23.53.54.53s.54-.23.54-.53Zm-.64.33h-.18v-.73h.33c.17 0 .25.1.25.23 0 .12-.05.19-.13.22l.17.28h-.2l-.14-.25h-.1v.25Zm.13-.39c.06 0 .09-.02.09-.08v-.05c0-.05-.03-.08-.09-.08h-.13v.21h.13Zm-34.86-.22h6.44v.92H6.23v-.92Zm0-.84h6.44v-.92H6.23v.92Zm1.84-1.76h2.76v-.92H8.07v.92Zm0-1.76h2.76v-.92H8.07v.92Zm0-1.76h2.76v-.92H8.07v.92Zm2.76-2.68H8.07v.92h2.76v-.92Zm-4.6-.84h6.44v-.92H6.23v.92Zm0-1.76h6.44v-.92H6.23v.92Zm7.36 10.54h9.82c.16-.28.29-.59.37-.92H13.59v.92Zm9.05-4.43h-7.21v.92h7.98c-.2-.35-.46-.66-.77-.92Zm-7.21-1.76v.92h7.21c.31-.26.57-.57.77-.92h-7.98Zm7.98-3.51h-9.82v.92h10.19c-.08-.33-.21-.64-.37-.92Zm-3.04-1.76h-6.78v.92h9.15c-.63-.57-1.46-.92-2.37-.92Zm-4.94 4.43h2.76v-.92h-2.76v.92Zm5.36 0h2.97c.08-.29.12-.6.12-.92h-3.1v.92Zm-5.36 5.27h2.76v-.92h-2.76v.92Zm5.36-.92v.92h3.1c0-.32-.04-.63-.12-.92H20.8Zm-7.2 4.43h6.78c.92 0 1.75-.35 2.37-.92h-9.15v.92Zm18.41 0 .32-.92h-.64l.32.92Zm-.61-1.76h1.23l.32-.92h-1.87l.32.92Zm-.62-1.76h2.46l.32-.92h-3.11l.32.92Zm-.62-1.76h3.7l.32-.92h-4.34l.32.92Zm-3.68-3.51h4.97l-.32-.92h-4.65v.92Zm6.68-1.76h6.2v-.92h-5.88l-.32.92Zm.93-2.68-.32.92h5.59v-.92h-5.27Zm-9.46 13.22h4.6v-.92h-4.6v.92Zm0-1.76h4.6v-.92h-4.6v.92Zm1.84-1.76h2.76v-.92h-2.76v.92Zm0-1.76h2.76v-.92h-2.76v.92Zm11.05-4.43h-4.65l-.32.92h4.97v-.92Zm-2.76 2.68h2.76v-.92h-5.26l-.26.74-.26-.74h-5.26v.92h2.76v-.85l.3.85h4.93l.3-.85v.85Zm2.76.84h-2.76v.92h2.76v-.92Zm-2.76 2.68h2.76v-.92h-2.76v.92Zm0 1.76h4.6v-.92h-4.6v.92Zm0 1.76h4.6v-.92h-4.6v.92Zm-3.92-10.54-.32-.92h-5.88v.92h6.2Zm-.61-1.76-.32-.92h-5.27v.92h5.59Z\" data-name=\"IBM�\" style=\"fill:#0f62fe\"/></g></svg>"
+    },
+    "servers": [
+        {
+            "url": "https://dsmsalesportalapi-digitalsalesmanager.cp4bautomation-685c4d909dba5536870f4da931535b5a-0000.eu-de.containers.appdomain.cloud"
+        }
+    ],
+    "security": [
+        {
+            "basicAuth": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Request"
+        },
+        {
+            "name": "Response"
+        }
+    ],
+    "paths": {
+        "/bom/fetch": {
+            "post": {
+                "tags": [
+                    "Request"
+                ],
+                "description": "DSM -  Generate Quotation",
+                "summary": "DSM -  Generate Quotation",
+                "operationId": "Request.getbom.DSM",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "product": {
+                                        "type": "string",
+                                        "x-ibm-order": 1,
+                                        "x-ibm-label": "Product Name",
+                                        "x-ibm-multiline": "false"
+                                    },
+                                    "size": {
+                                        "type": "string",
+                                        "x-ibm-order": 2,
+                                        "x-ibm-label": "Size",
+                                        "enum": [
+                                            "SMALL",
+                                            "MEDIUM",
+                                            "LARGE"
+                                        ]
+                                    },
+                                    "category": {
+                                        "type": "string",
+                                        "x-ibm-order": 3,
+                                        "x-ibm-label": "Category",
+                                        "x-ibm-multiline": "false"
+                                    },
+                                    "partnerName": {
+                                        "type": "string",
+                                        "x-ibm-order": 4,
+                                        "x-ibm-label": "Partner Name",
+                                        "x-ibm-multiline": "false"
+                                    },
+                                    "opportunityID": {
+                                        "type": "string",
+                                        "x-ibm-label": "Opportunity ID",
+                                        "x-ibm-order": 5,
+                                        "x-ibm-multiline": "false"
+                                    }
+                                },
+                                "required": [
+                                    "product",
+                                    "size"
+                                ]
+                            }
+                        }
+                    },
+                    "required": false
+                },
+                "x-ibm-operation": {
+                    "verb": "retrievewithwhere",
+                    "model": "BOMDetails"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "instances": {
+                                            "type": "array",
+                                            "x-ibm-label": "BOM Details",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "product": {
+                                                        "type": "string",
+                                                        "title": "Product Name"
+                                                    },
+                                                    "category": {
+                                                        "type": "string",
+                                                        "title": "Category"
+                                                    },
+                                                    "size": {
+                                                        "type": "string",
+                                                        "title": "Size"
+                                                    },
+                                                    "partNumber": {
+                                                        "type": "string",
+                                                        "title": "Part Number"
+                                                    },
+                                                    "licenseEntitlement": {
+                                                        "type": "number",
+                                                        "title": "License Entitled"
+                                                    },
+                                                    "listPrice": {
+                                                        "type": "number",
+                                                        "title": "List Price"
+                                                    },
+                                                    "partnerName": {
+                                                        "type": "string",
+                                                        "title": "Partner Name"
+                                                    },
+                                                    "opportunityID": {
+                                                        "type": "string",
+                                                        "title": "Opportunity ID"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-codegen-request-body-name": "data",
+                "x-ibm-nl-intent-examples": [
+                    "Generate Quotation",
+                    "Generate BOM",
+                    "generate bill of material",
+                    "generate BOM",
+                    "generate quotation"
+                ],
+                "x-ibm-nl-entities": {
+                    "entities": [
+                        {
+                            "entity": "size",
+                            "values": [
+                                {
+                                    "value": "SMALL",
+                                    "synonyms": [
+                                        "Small"
+                                    ],
+                                    "type": "synonyms"
+                                },
+                                {
+                                    "value": "MEDIUM",
+                                    "synonyms": [
+                                        "Medium"
+                                    ],
+                                    "type": "synonyms"
+                                },
+                                {
+                                    "value": "LARGE",
+                                    "synonyms": [
+                                        "Large"
+                                    ],
+                                    "type": "synonyms"
+                                }
+                            ],
+                            "fuzzy_match": true
+                        }
+                    ]
+                },
+                "x-ibm-conversational-skill": true
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "instances": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "partnerName": {
+                                    "title": "Customer Name",
+                                    "type": "string",
+                                    "x-ibm-order": 1
+                                },
+                                "opportunityID": {
+                                    "title": "Opportunity ID",
+                                    "type": "string",
+                                    "x-ibm-order": 2
+                                },
+                                "description": {
+                                    "title": "Description",
+                                    "type": "string",
+                                    "x-ibm-order": 4
+                                },
+                                "product": {
+                                    "title": "Product Name",
+                                    "type": "string",
+                                    "x-ibm-order": 3
+                                },
+                                "category": {
+                                    "title": "Category",
+                                    "type": "string",
+                                    "x-ibm-order": 5
+                                },
+                                "startDate": {
+                                    "title": "Start Date",
+                                    "type": "string",
+                                    "x-ibm-order": 6
+                                },
+                                "endDate": {
+                                    "title": "End Date",
+                                    "type": "string",
+                                    "x-ibm-order": 7
+                                },
+                                "currentStatus": {
+                                    "title": "Status",
+                                    "type": "string",
+                                    "x-ibm-order": 8
+                                },
+                                "gsiContact": {
+                                    "title": "Contact",
+                                    "type": "string",
+                                    "x-ibm-order": 9
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "pipelineRecords": {
+                "type": "object",
+                "properties": {
+                    "partnerName": {
+                        "title": "Customer Name",
+                        "type": "string",
+                        "x-ibm-order": 1
+                    },
+                    "opportunityID": {
+                        "title": "Opportunity ID",
+                        "type": "string",
+                        "x-ibm-order": 2
+                    },
+                    "description": {
+                        "title": "Description",
+                        "type": "string",
+                        "x-ibm-order": 4
+                    },
+                    "product": {
+                        "title": "Product Name",
+                        "type": "string",
+                        "x-ibm-order": 3
+                    },
+                    "category": {
+                        "title": "Category",
+                        "type": "string",
+                        "x-ibm-order": 5
+                    },
+                    "startDate": {
+                        "title": "Start Date",
+                        "type": "string",
+                        "x-ibm-order": 6
+                    },
+                    "endDate": {
+                        "title": "End Date",
+                        "type": "string",
+                        "x-ibm-order": 7
+                    },
+                    "currentStatus": {
+                        "title": "Status",
+                        "type": "string",
+                        "x-ibm-order": 8
+                    },
+                    "gsiContact": {
+                        "title": "Contact",
+                        "type": "string",
+                        "x-ibm-order": 9
+                    }
+                }
+            },
+            "BOMRequest": {
+                "required": [
+                    "product",
+                    "size"
+                ],
+                "type": "object",
+                "properties": {
+                    "product": {
+                        "type": "string",
+                        "x-ibm-order": 1,
+                        "x-ibm-label": "Product Name",
+                        "x-ibm-multiline": "false"
+                    },
+                    "size": {
+                        "type": "string",
+                        "x-ibm-order": 2,
+                        "x-ibm-label": "Size",
+                        "enum": [
+                            "SMALL",
+                            "MEDIUM",
+                            "LARGE"
+                        ]
+                    },
+                    "category": {
+                        "type": "string",
+                        "x-ibm-order": 3,
+                        "x-ibm-label": "Category",
+                        "x-ibm-multiline": "false"
+                    },
+                    "partnerName": {
+                        "type": "string",
+                        "x-ibm-order": 4,
+                        "x-ibm-label": "Partner Name",
+                        "x-ibm-multiline": "false"
+                    },
+                    "opportunityID": {
+                        "type": "string",
+                        "x-ibm-label": "Opportunity ID",
+                        "x-ibm-order": 5
+                    }
+                }
+            },
+            "BOMResponse": {
+                "type": "object",
+                "properties": {
+                    "instances": {
+                        "type": "array",
+                        "x-ibm-label": "BOM Details",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "product": {
+                                    "type": "string",
+                                    "title": "Product Name"
+                                },
+                                "category": {
+                                    "type": "string",
+                                    "title": "Category"
+                                },
+                                "size": {
+                                    "type": "string",
+                                    "title": "Size"
+                                },
+                                "partNumber": {
+                                    "type": "string",
+                                    "title": "Part Number"
+                                },
+                                "licenseEntitlement": {
+                                    "type": "number",
+                                    "title": "License Entitled"
+                                },
+                                "listPrice": {
+                                    "type": "number",
+                                    "title": "List Price"
+                                },
+                                "partnerName": {
+                                    "type": "string",
+                                    "title": "Partner Name"
+                                },
+                                "opportunityID": {
+                                    "type": "string",
+                                    "title": "Opportunity ID"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "BOMDetails": {
+                "type": "object",
+                "properties": {
+                    "product": {
+                        "type": "string",
+                        "title": "Product Name"
+                    },
+                    "category": {
+                        "type": "string",
+                        "title": "Category"
+                    },
+                    "size": {
+                        "type": "string",
+                        "title": "Size"
+                    },
+                    "partNumber": {
+                        "type": "string",
+                        "title": "Part Number"
+                    },
+                    "licenseEntitlement": {
+                        "type": "number",
+                        "title": "License Entitled"
+                    },
+                    "listPrice": {
+                        "type": "number",
+                        "title": "List Price"
+                    },
+                    "partnerName": {
+                        "type": "string",
+                        "title": "Partner Name"
+                    },
+                    "opportunityID": {
+                        "type": "string",
+                        "title": "Opportunity ID"
+                    }
+                }
+            },
+            "updateRequest": {
+                "required": [
+                    "opportunityID",
+                    "currentStatus"
+                ],
+                "type": "object",
+                "properties": {
+                    "opportunityID": {
+                        "x-ibm-label": "Opportunity ID",
+                        "type": "string"
+                    },
+                    "currentStatus": {
+                        "x-ibm-label": "Status",
+                        "type": "string"
+                    }
+                },
+                "description": ""
+            },
+            "UpdateResponse": {
+                "type": "object",
+                "properties": {
+                    "response_body": {
+                        "title": "Acknowledgement",
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "basicAuth": {
+                "type": "http",
+                "scheme": "basic"
+            }
+        }
+    }
+}
